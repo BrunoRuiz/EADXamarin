@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.View.Page"
+             Title="Lista de Cursos UNICIV">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            
+            <ListView
+                Margin="5"
+                SeparatorVisibility="None"
+                HasUnevenRows="True"
+                ItemsSource="{Binding CursosDisponiveis}"
+                ItemSelected="ListView_ItemSelected">
+
+                <ListView.Header>
+
+                    <StackLayout 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start">
+
+                        <Grid
+                            Padding="0"
+                            RowSpacing="0">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!--NOME DA INSTITUICAO-->
+                            <StackLayout
+                                Grid.Row="0">
+
+                                <Label
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding InstituicaoNome}"
+                                    TextColor="#317EF4"
+                                    FontAttributes="Bold"
+                                    FontSize="Title"/>
+
+                            </StackLayout>
+
+                            <!--ENDEREÇO DA INSTITUICAO-->
+                            <StackLayout 
+                                Grid.Row="1">
+
+                                <Label                                     
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding InstituicaoEndereco}"
+                                    LineBreakMode="CharacterWrap"
+							        TextColor="Accent"
+                                    HorizontalOptions="CenterAndExpand" 
+                                    VerticalTextAlignment="Center"
+                                    FontSize="Subtitle"/>
+
+                            </StackLayout>
+
+                        </Grid>
+
+                    </StackLayout>
+
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <StackLayout
+                                Padding="20"
+                                Orientation="Horizontal"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+
+                                <Grid
+                                    Padding="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout                                        
+                                        Grid.Row="0"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="StartAndExpand">
+                                        
+                                        <!--IMAGEM DO CURSO-->
+                                        <Image 
+                                            Source="{Binding Imagem}"
+                                            Aspect="AspectFill"
+                                            HeightRequest="60"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"/>
+
+                                        <!--TITULO DO CURSO DISPONIVEL-->
+                                        <Label
+                                            Text="{Binding Titulo}"
+                                            TextColor="#317EF4"
+                                            FontSize="Title"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="StartAndExpand">
+
+                                        <!--DESCRICAO DO CURSO DISPONIVEL-->
+                                        <Label
+                                            Text="{Binding Descricao}"
+                                            FontSize="Subtitle"/>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
