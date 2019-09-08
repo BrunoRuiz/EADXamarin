@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTableView.MainPage"
+             Title="Configuração">
+
+    <StackLayout
+        Padding="10">
+
+        <TableView
+            Intent="Settings"
+            HasUnevenRows="True">
+
+            <TableRoot>
+
+                <TableSection
+                    Title="Backup e Sincronização">
+
+
+                    <SwitchCell
+                        Text="sincronizaçao automática"
+                        On="{Binding SyncAutomatico}" />
+
+                    <EntryCell
+                        Label="Informe o nome para Backup"
+                        Text="{Binding NomeArquivoBackup}"
+                        Placeholder="ex.: Backup "/>
+
+                </TableSection>
+
+                <TableSection
+                    Title="Notificações">
+
+                    <SwitchCell
+                        Text="Notificações por Email"
+                        On="{Binding NoficationEmail}"/>
+
+                    <SwitchCell
+                        Text="Notificações Push"
+                        On="{Binding NotificationPush}" />
+
+                </TableSection>
+
+                <TableSection
+                    Title="Outros">
+
+                    <ViewCell>
+
+                        <StackLayout
+                            Padding="20, 15 ,0, 0">
+
+                            <Label
+                                Text="Obeservação" />
+
+                            <Editor
+                                Text="{Binding Observacao}"
+                                HeightRequest="100" />
+
+                        </StackLayout>
+
+                    </ViewCell>
+
+                </TableSection>
+                               
+
+            </TableRoot>
+            
+        </TableView>
+
+        <Button 
+            Text="Salvar" />
+
+
+    </StackLayout>
+
+</ContentPage>
