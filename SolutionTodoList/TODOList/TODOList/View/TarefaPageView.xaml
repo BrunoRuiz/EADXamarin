@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:convert="clr-namespace:TODOList.Converter"
+             mc:Ignorable="d"
+             x:Name="TarefaPage"
+             x:Class="TODOList.View.TarefaPageView">
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+            
+            <convert:FinalizadoConverter x:Key="cvtFinalizado" />
+           
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        
+        <StackLayout
+            Padding="5">
+            
+            <Label Text="Tarefa"
+                FontSize="Small" />
+
+            <StackLayout
+                Orientation="Horizontal">
+
+                <Entry
+                    x:Name="edtTarefa"
+                    Text="{Binding TarefaAtual.Descricao}"
+                    Placeholder="Digite uma nova tarefa"
+                    HorizontalOptions="FillAndExpand" />
+
+                <Button
+                    x:Name="bnSalvarTarefa"
+                    Text="Salvar"
+                    Command="{Binding SalvarCommand}"/>
+
+            </StackLayout>
+
+            <Label
+                Text="Lista de Tarefas"
+                HorizontalOptions="CenterAndExpand"
+                FontSize="Title"
+                FontAttributes="Bold" 
+                Margin="0, 20"/>
+
+            <ListView
+                x:Name="lvtTarefas"
+                ItemsSource="{Binding ListaTarefa}">
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <ViewCell.ContextActions>
+
+                                <MenuItem
+                                    Text="Excluir"
+                                    Command="{Binding Source={x:Reference TarefaPage}, 
+                                                      Path= BindingContext.ExcluirCommand}"
+                                    CommandParameter="{Binding .}" />
+
+                                <MenuItem
+                                    Text="Editar"
+                                    Command="{Binding Source={x:Reference TarefaPage}, 
+                                                      Path= BindingContext.EditarCommand}"
+                                    CommandParameter="{Binding .}" />
+
+                            </ViewCell.ContextActions>
+
+                            <StackLayout
+                                Orientation="Horizontal">
+
+                                <Label
+                                    x:Name="lblDescricao"
+                                    Text="{Binding Descricao}"
+                                    HorizontalOptions="StartAndExpand" 
+                                    VerticalOptions="Center"/>
+
+
+                                <Button
+                                    x:Name="btnSituacao"
+                                    Text="{Binding Finalizado, Converter={StaticResource cvtFinalizado}}"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center" 
+                                    Command="{Binding Source={x:Reference TarefaPage}, 
+                                                      Path= BindingContext.EditarSituacaoCommand}"
+                                    CommandParameter="{Binding .}" />
+
+                            </StackLayout>
+                            
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                    
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
