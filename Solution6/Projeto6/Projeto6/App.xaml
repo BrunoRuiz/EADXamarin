@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Projeto6.App">
+    
+    <Application.Resources>
+
+        <Style
+            TargetType="Label">
+
+            <Setter Property="TextColor" Value="Green" />
+            
+        </Style>
+
+        <Style
+            TargetType="Entry">
+
+            <Setter Property="TextColor" Value="Blue" />
+
+        </Style>
+
+        <Style
+            TargetType="Button">
+
+            <Setter Property="BackgroundColor" Value="Red" />
+            <Setter Property="TextColor" Value="Yellow" />
+
+        </Style>
+
+        <Style
+            x:Key="buttonStyle"
+            TargetType="Button">
+
+            <Setter Property="BackgroundColor" Value="Yellow" />
+            <Setter Property="TextColor" Value="Black" />
+
+        </Style>
+            
+            
+        
+        
+    </Application.Resources>
+        
+</Application>
