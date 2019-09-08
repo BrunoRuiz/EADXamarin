@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Projeto5.View.SlideStepperPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Label
+                x:Name="lblSlider" />
+
+            <Slider
+                Minimum="0"
+                Maximum="1000"
+                Value="250"
+                ValueChanged="Slider_ValueChanged" />
+
+
+            <Label
+                x:Name="lblStepper" />
+
+            <Stepper
+                Minimum="0"
+                Maximum="100"
+                Increment="5"
+                Value="5"
+                ValueChanged="Stepper_ValueChanged" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
